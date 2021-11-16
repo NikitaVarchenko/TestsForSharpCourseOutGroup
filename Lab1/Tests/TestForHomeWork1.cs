@@ -27,9 +27,8 @@ namespace Lab1.Tests
         [TestCase(new int[] { 1, -10, 3, 4, -8, 20, 7, 43, -15, -9 }, -18.6)]
         [TestCase(new int[] { 1, 10, 3, 4, 8, 20, 7, 43, 15, 9 }, 11)]
         [TestCase(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 0)]
-        [TestCase(new int[] { -1, -10, -3, -4, -8, -20, -7, -43, -15, -9 }, -55)]
-        [Ignore("Убрать после реализации метода")]
-        public void TestForVariant5(int[] temp, double temp2) => Assert.AreEqual(HomeWorks.HomeWork1.Variant5(temp), temp2,
+        [TestCase(new int[] { -1, -10, -3, -4, -8, -20, -7, -43, -15, -9 }, 31)]
+         public void TestForVariant5(int[] temp, double temp2) => Assert.AreEqual(HomeWorks.HomeWork1.Variant5(temp), temp2,
         "Метод возвращает не верное значение");
     }
 }

@@ -38,14 +38,14 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны отрицательные элементы на нули</returns>
         public static int[] Variant3(int[] temp)
         {
-            
+
             for (int i = 0; i < temp.Length; i++)
             {
                 if (temp[i] < 0)
                 {
                     temp[i] = 0;
                 }
-               
+
             }
             return temp;
         }
@@ -59,7 +59,7 @@ namespace Lab1.HomeWorks
         {
             for (int i = 0; i < temp.Length - 1; i++)
             {
-                if (temp[i + 1] < 0 && temp[i]>0)
+                if (temp[i + 1] < 0 && temp[i] > 0)
                 {
                     temp[i] *= 3;
                 }
@@ -74,7 +74,21 @@ namespace Lab1.HomeWorks
         /// <returns>Разница между средним арифметическим и значение минимального элемента</returns>
         public static double Variant5(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант5");
+            int sum = 0;
+            double avg = 0;
+            double dif = 0;
+            int min = temp[0];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                sum += temp[i];
+                if (min > temp[i])
+                {
+                    min = temp[i];
+                }
+            }
+            avg = sum / temp.Length;
+            dif = avg - min;
+            return dif;
         }
     }
 }
