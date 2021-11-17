@@ -46,7 +46,44 @@ namespace Lab1.HomeWorks
         /// <returns>Слово состоящее только из цифр.</returns>
         public static string Variant2(string[] temp)
         {
-            throw new System.Exception("Не реализован вариант6");
+            string str;
+            string res = null;
+            int c = 0;
+
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                int countNum = 0;
+                str = temp[i];
+                for (int j = 0; j < str.Length; j++)
+                {
+                    if(str[j] == '0' ||
+                       str[j] == '1' ||
+                       str[j] == '2' ||
+                       str[j] == '3' ||
+                       str[j] == '4' ||
+                       str[j] == '5' ||
+                       str[j] == '6' ||
+                       str[j] == '7' ||
+                       str[j] == '8' ||
+                       str[j] == '9')
+                    {
+                        countNum++;
+                    }else
+                    {
+                        countNum = 0;
+                    } 
+                }
+                if(countNum != 0)
+                {
+                    c++;
+                    res = temp[i];
+                    if (c == 2)
+                        return res;
+                }
+            }
+            return res;
         }
+
     }
 }
