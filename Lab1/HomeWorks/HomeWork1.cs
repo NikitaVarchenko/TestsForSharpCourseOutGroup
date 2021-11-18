@@ -13,47 +13,62 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны местами максимальный отрицательный элемент и минимальный положительный</returns>
         public static int[] Variant1(int[] temp)
         {
-            int indexMax = 0;
-            int indexMin = 0;
+            int indexNeg = 0;
+            int indexPos = 0;
             int maxNeg = 0;
             int minPos = 0;
 
             int countPos = 0;
             int countNeg = 0;
+
             for (int i = 0; i < temp.Length; i++)
             {
                 if (temp[i] < 0)
+                {
                     countNeg++;
+                    indexNeg = i;
+                    maxNeg = temp[i];
+                }
                 else
+                {
                     countPos++;
+                    indexPos = i;
+                    minPos = temp[i];
+                }
             }
+            
             if (countPos == temp.Length || countNeg == temp.Length)
                 return temp;
 
             for (int i = 0; i < temp.Length; i++)
             {
-                if (temp[i] < 0 && temp[i] != 0)
-                    maxNeg = temp[i];
-                else
-                    minPos = temp[i];
-            }
-
-            for (int i = 0; i < temp.Length; i++)
-            {
-                if (temp[i] > 0 && temp[i] != 0)
+                if (temp[i] < 0 )
                 {
                     if (maxNeg > temp[i])
-                        indexMax = i;
-                }
-                else
-                {
-                    if (minPos > temp[i])
-                        indexMin = i;
+                    {
+                        indexNeg = i;
+                        maxNeg = temp[i];
+                    }
+                    
                 }
             }
-            int tmp = temp[indexMax];
-            temp[indexMax] = temp[indexMin];
-            temp[indexMin] = tmp;
+
+            for (int j = 0; j < temp.Length; j++)
+            {
+                if (temp[j] > 0)
+                {
+                    if (minPos > temp[j])
+                    {
+                        indexPos = j;
+                        minPos = temp[j] ;
+                    }
+
+                }
+            }
+
+
+
+            (temp[indexPos], temp[indexNeg]) = (temp[indexNeg],temp[indexPos]);
             return temp;
         }
 
