@@ -1,0 +1,4 @@
+interface In
+{
+    string PringFromInterface();
+}
