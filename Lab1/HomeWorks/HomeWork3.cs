@@ -19,33 +19,31 @@ namespace Lab1.HomeWorks
         {
             double res = 0;
 
-            try
+            switch (mathOperation)
             {
-                switch (mathOperation)
-                {
-                    case '+':
-                        res = x + y;
-                        break;
-                    case '-':
-                        res = x - y;
-                        break;
-                    case '*':
-                        res = x * y;
-                        break;
-                    case '/':
-                        res = x / y;
-                        break;
-                    default:
-                        break;
-                }
-                
-            }
-            catch (System.Exception)
-            {
-
-                throw  new Exception();
+                case '+':
+                    res = x + y;
+                    break;
+                case '-':
+                    res = x - y;
+                    break;
+                case '*':
+                    res = x * y;
+                    break;
+                case '/':
+                    res = x / y;
+                    if (y == 0)
+                    {
+                        throw new System.Exception("Деление на ноль запрещено!");
+                    }
+                    break;
+                default:
+                    {
+                        throw new System.Exception("Ошибка");
+                    }
             }
             return res;
         }
+
     }
 }
