@@ -12,8 +12,39 @@ namespace Lab1.HomeWorks
         /// <param name="temp">Исходный массив</param>
         /// <returns>Массив в котором поменяны местами максимальный отрицательный элемент и минимальный положительный</returns>
         public static int[] Variant1(int[] temp)
-        {
-            throw new System.Exception("Не реализован вариант1");
+        { 
+            int min = 0;
+            int max = 1000000;
+            int n = -1;
+            int m = -1;
+
+            for (int i = 0; i < temp.Length - 1; i++)
+            {
+                if (temp[i]<0)
+                {
+                    if (temp[i] < min)
+                    { 
+                        min = temp[i];
+                        n = i;
+                    } 
+                }
+                else
+                { 
+                    if (temp[i] < max)
+                    {
+                        max = temp[i];
+                        m = i;
+                    }
+                }
+            }
+
+            if ((n != -1) && (m != -1))
+            {
+                temp[n] = max;
+                temp[m] = min;
+            }
+            
+            return temp;
         }
 
         /// <summary>

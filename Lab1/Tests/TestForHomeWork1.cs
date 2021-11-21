@@ -7,7 +7,7 @@ namespace Lab1.Tests
         [TestCase(new int[] { 1, -10, 3, 4, -8, 20, 7, 43, -15, -9 }, new int[] { -15, -10, 3, 4, -8, 20, 7, 43, 1, -9 })]
         [TestCase(new int[] { 1, 10, 3, 4, 8, 20, 7, 43, 15, 9 }, new int[] { 1, 10, 3, 4, 8, 20, 7, 43, 15, 9 })]
         [TestCase(new int[] { -1, -10, -3, -4, -8, -20, -7, -43, -15, -9 }, new int[] { -1, -10, -3, -4, -8, -20, -7, -43, -15, -9 })]
-        [Ignore("Убрать после реализации метода")]
+        //[Ignore("Убрать после реализации метода")]
         public void TestForVariant1(int[] temp, int[] temp2) => Assert.AreEqual(HomeWorks.HomeWork1.Variant1(temp), temp2,
         "Метод возвращает не верное значение");
 
