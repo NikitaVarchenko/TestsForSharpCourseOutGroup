@@ -13,17 +13,55 @@ namespace Lab1.HomeWorks
         /// <returns>Самая длинная строка, ее длина, самая маленькая трока и ее длина. Пример вывода return ("max1", 4, "min", 3);</returns>
         public static (string max, int lengthMax, string min, int lengthMin) Variant1(string[] temp)
         {
-            throw new System.Exception("Не реализован вариант1");
+            int lengthMax;
+            int lengthMin;
+            string min = "";
+            string max = "";
+
+            lengthMin = temp[1].Length;
+            lengthMax = temp[1].Length;
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                
+
+                if (temp[i].Length <= lengthMin)
+                {
+                    lengthMin = temp[i].Length;
+                    min = temp[i];
+                }
+               
+                if (temp[i].Length >= lengthMax)
+                {
+                    lengthMax = temp[i].Length;
+                    max = temp[i];
+                }
+            }
+
+            return (max, lengthMax, min, lengthMin);
         }
 
-        /// <summary>
-        /// Найти слово, состоящее только из цифр. Если таких слов больше одного, найти второе из них
-        /// </summary>
-        /// <param name="temp">Исходный массив строк</param>
-        /// <returns>Слово состоящее только из цифр.</returns>
-        public static string Variant2(string[] temp)
-        {
-            throw new System.Exception("Не реализован вариант6");
+         /// <summary>
+         /// Найти слово, состоящее только из цифр. Если таких слов больше одного, найти второе из них
+         /// </summary>
+         /// <param name="temp">Исходный массив строк</param>
+         /// <returns>Слово состоящее только из цифр.</returns>
+         public static string Variant2(string[] temp)
+         {
+            int parsedElement = 0;
+            int cnt = 0;
+            string str = null;
+            for (int i = 0; i < temp.Length; i++)
+            {
+               if (int.TryParse(temp[i], out parsedElement))
+                {
+                    cnt++;
+                    str = temp[i];
+                    if (cnt > 1)
+                        return (str);
+                }
+            }
+            return (str);
         }
     }
 }
