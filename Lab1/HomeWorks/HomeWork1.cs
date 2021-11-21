@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace Lab1.HomeWorks
 {
     /// <summary>
@@ -18,7 +21,7 @@ namespace Lab1.HomeWorks
             int n = -1;
             int m = -1;
 
-            for (int i = 0; i < temp.Length - 1; i++)
+            for (int i = 0; i < temp.Length; i++)
             {
                 if (temp[i]<0)
                 {
@@ -53,8 +56,13 @@ namespace Lab1.HomeWorks
         /// <param name="temp">Исходный массив</param>
         /// <returns>Сумма элементов, состоящих на чётных позициях массива</returns>
         public static int Variant2(int[] temp)
-        {
-            throw new System.Exception("Не реализован вариант2");
+        {   
+        int summ = 0;
+            for (int i = 0; i < temp.Length; i+=2)
+            {
+                summ += temp[i];
+            }
+            return summ;
         }
 
         /// <summary>
@@ -64,7 +72,14 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны отрицательные элементы на нули</returns>
         public static int[] Variant3(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант3");
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] < 0)
+                {
+                    temp[i] = 0;
+                }
+            }
+            return temp;
         }
 
         /// <summary>
@@ -74,7 +89,15 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором *3 каждый положительный элемент, который стоит перед отрицательным</returns>
         public static int[] Variant4(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант4");
+            for (int i = 0; i < temp.Length - 1; i++)
+            {
+                if ((temp[i+1] < 0) && (temp[i] >= 0))
+                {
+                    temp[i] *= 3 ;
+                    Console.WriteLine(temp[i]);
+                }
+            }
+            return temp;
         }
 
         /// <summary>
@@ -84,7 +107,21 @@ namespace Lab1.HomeWorks
         /// <returns>Разница между средним арифметическим и значение минимального элемента</returns>
         public static double Variant5(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант5");
+            int w = 0;
+            int i = 0;
+            int min = temp[1];
+              for (i = 0; i < temp.Length; i++)
+              {
+                     w += temp[i];
+    
+                  if (temp[i] < min)
+                  {
+                     min = temp[i];
+                  }
+              }
+            double x = (double)w / i - min;
+            
+            return x;
         }
     }
 }
