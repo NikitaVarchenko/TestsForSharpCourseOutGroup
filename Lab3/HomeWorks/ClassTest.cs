@@ -20,7 +20,7 @@ namespace Lab3.HomeWorks
 
         public int CompareTo(object? obj)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("");
         }
     }
 }
