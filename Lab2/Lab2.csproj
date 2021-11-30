@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <ApplicationIcon />
+
+    <OutputType>Exe</OutputType>
+
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
