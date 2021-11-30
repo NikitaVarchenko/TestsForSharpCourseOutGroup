@@ -2,6 +2,8 @@ using System;
 using NUnit.Framework;
 
 namespace Lab4.Tests
+
+public class Tests
 {
 
     public class Tests

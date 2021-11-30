@@ -13,7 +13,63 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны местами максимальный отрицательный элемент и минимальный положительный</returns>
         public static int[] Variant1(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант1");
+            int indexNeg = 0;
+            int indexPos = 0;
+            int maxNeg = 0;
+            int minPos = 0;
+
+            int countPos = 0;
+            int countNeg = 0;
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] < 0)
+                {
+                    countNeg++;
+                    indexNeg = i;
+                    maxNeg = temp[i];
+                }
+                else
+                {
+                    countPos++;
+                    indexPos = i;
+                    minPos = temp[i];
+                }
+            }
+            
+            if (countPos == temp.Length || countNeg == temp.Length)
+                return temp;
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] < 0 )
+                {
+                    if (maxNeg > temp[i])
+                    {
+                        indexNeg = i;
+                        maxNeg = temp[i];
+                    }
+                    
+                }
+            }
+
+            for (int j = 0; j < temp.Length; j++)
+            {
+                if (temp[j] > 0)
+                {
+                    if (minPos > temp[j])
+                    {
+                        indexPos = j;
+                        minPos = temp[j] ;
+                    }
+
+                }
+            }
+
+
+
+            (temp[indexPos], temp[indexNeg]) = (temp[indexNeg],temp[indexPos]);
+            return temp;
         }
 
         /// <summary>
@@ -23,7 +79,12 @@ namespace Lab1.HomeWorks
         /// <returns>Сумма элементов, состоящих на чётных позициях массива</returns>
         public static int Variant2(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант2");
+            int sum = 0;
+            for (int i = 0; i < temp.Length; i += 2)
+            {
+                sum += temp[i];
+            }
+            return sum;
         }
 
         /// <summary>
@@ -33,7 +94,16 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны отрицательные элементы на нули</returns>
         public static int[] Variant3(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант3");
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] < 0)
+                {
+                    temp[i] = 0;
+                }
+
+            }
+            return temp;
         }
 
         /// <summary>
@@ -43,7 +113,14 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором *3 каждый положительный элемент, который стоит перед отрицательным</returns>
         public static int[] Variant4(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант4");
+            for (int i = 0; i < temp.Length - 1; i++)
+            {
+                if (temp[i + 1] < 0 && temp[i] > 0)
+                {
+                    temp[i] *= 3;
+                }
+            }
+            return temp;
         }
 
         /// <summary>
@@ -53,7 +130,21 @@ namespace Lab1.HomeWorks
         /// <returns>Разница между средним арифметическим и значение минимального элемента</returns>
         public static double Variant5(int[] temp)
         {
-            throw new System.Exception("Не реализован вариант5");
+            int sum = 0;
+            double avg = 0;
+            double dif = 0;
+            int min = temp[0];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                sum += temp[i];
+                if (min > temp[i])
+                {
+                    min = temp[i];
+                }
+            }
+            avg = sum / temp.Length;
+            dif = avg - min;
+            return dif;
         }
     }
 }
