@@ -32,7 +32,6 @@ namespace Lab3.Tests
         };
 
         [TestCaseSource(nameof(DivideCases))]
-        [Ignore("Убрать после реализации метода")]
         public void TestWithSort((string, int)[] dataForTest, List<ClassTest> verificationData)
         {
             List<ClassTest> tempList = new List<ClassTest>();

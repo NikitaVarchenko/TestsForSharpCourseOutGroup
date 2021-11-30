@@ -18,22 +18,29 @@ namespace Lab3.HomeWorks
         public string Name { get => name; set => name = value; }
         public int Age { get; set; }
 
-        public int CompareTo(ClassTest? other)
+       
+
+        public int CompareTo(ClassTest? c)
         {
-            if (other != null)
+            if (c != null)
             {
-                if (this.Age > other.Age) return 1;
-                else if (this.Age < other.Age) return -1;
-                else return 0;
-            }
-            else throw new ArgumentException();
+                if (this.Age > c.Age)
+                    return 1;
+                else if (this.Age < c.Age)
+                    return -1;
+                else
+                    return 0;
+            }else
+            throw new Exception();
         }
 
         public override bool Equals(object? obj)
         {
-            if (obj != null) return this.Name == ((ClassTest)obj).Name && this.Age == ((ClassTest)obj).Age;
-            else return false;
-            throw new NotImplementedException();
+            ClassTest? c = obj as ClassTest;
+            if (obj != null) 
+                return this.Name == c.Name && this.Age == c.Age;
+            else 
+                return false;
         }
     }
 }
