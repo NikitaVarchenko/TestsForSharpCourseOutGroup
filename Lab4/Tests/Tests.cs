@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace Lab4.Tests;
+namespace Lab4.Tests{
 
 public class Tests
 {
@@ -18,4 +18,4 @@ public class Tests
     [Ignore("Убрать после реализации метода")]
     public void TestWithOutException(int temp) => Assert.DoesNotThrow(delegate { HomeWorks.ClassTest.MetrodWithException(temp); },
     "Метод возвращает исключение на указных параметрах");
-}
+}}
