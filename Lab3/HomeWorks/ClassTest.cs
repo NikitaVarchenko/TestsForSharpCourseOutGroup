@@ -20,7 +20,14 @@ namespace Lab3.HomeWorks
 
         public int CompareTo(object? obj)
         {
-            throw new NotImplementedException();
+            ClassTest classTest = obj as ClassTest;
+            if (classTest == null)
+                throw new Exception("Невозможно сравнить объекты");
+            if (this.Age > classTest.Age)
+                return 1;
+            if (this.Age < classTest.Age)
+                return -1;
+            return 0;
         }
     }
 }

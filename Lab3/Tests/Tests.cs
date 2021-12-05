@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Lab3.HomeWorks;
 using NUnit.Framework;
+using System;
 
 namespace Lab3.Tests
 {
@@ -32,16 +33,22 @@ namespace Lab3.Tests
         };
 
         [TestCaseSource(nameof(DivideCases))]
-        [Ignore("Убрать после реализации метода")]
         public void TestWithSort((string, int)[] dataForTest, List<ClassTest> verificationData)
         {
             List<ClassTest> tempList = new List<ClassTest>();
+
             foreach (var temp in dataForTest)
             {
                 tempList.Add(new ClassTest(temp.Item1, temp.Item2));
             }
+
             tempList.Sort();
-            Assert.AreEqual(verificationData, tempList, "Данные реализованы не верно");
+
+            for (int i = 0; i < verificationData.Count; i++)
+            {
+                Assert.AreEqual(verificationData[i].Age, tempList[i].Age, "Данные реализованы не верно");
+                Assert.AreEqual(verificationData[i].Name, tempList[i].Name, "Данные реализованы не верно");
+            }
         }
     }
 }
